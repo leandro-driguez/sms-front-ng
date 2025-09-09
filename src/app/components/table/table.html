@@ -1,0 +1,23 @@
+@if (this.columnNames()) {
+    <table>
+        <thead>
+            <tr>
+                @for (colName of this.columnNames(); track colName) {
+                    <th> {{colName}} </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for (row of this.rows(); track row.key; let i = $index) {
+                <tr>
+                    @for (column of this.columnNames(); track column) {
+                        <td (dblclick)="handleDblClick(row, column)">{{ getValue(row, column) }}</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@else {
+    <p>Loading...</p>
+}
