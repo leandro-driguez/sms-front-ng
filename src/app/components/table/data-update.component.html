@@ -1,0 +1,14 @@
+@if (this.formKeys.length > 0) {
+    <form [formGroup]="this.formGroup" (ngSubmit)="handleSubmit()">
+        @for (key of this.formKeys; track key) {
+            <div class="form-field">
+                <label [for]="key">{{ key }}</label>
+                <input [id]="key" [formControlName]="key" />
+            </div>
+        }
+        <button type="submit" [disabled]="this.formGroup.invalid">Save Changes</button>
+    </form>
+}
+@else {
+    <p>Loading...</p>
+}

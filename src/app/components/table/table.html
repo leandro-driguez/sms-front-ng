@@ -11,7 +11,7 @@
             @for (row of this.rows(); track row.key; let i = $index) {
                 <tr>
                     @for (column of this.columnNames(); track column) {
-                        <td (dblclick)="handleDblClick(row, column)">{{ getValue(row, column) }}</td>
+                        <td (dblclick)="openDialog(row)">{{ getValue(row, column) }}</td>
                     }
                 </tr>
             }
